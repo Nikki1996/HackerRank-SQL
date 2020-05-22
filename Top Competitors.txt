@@ -1,0 +1,8 @@
+select hid, hname from (select h.hacker_id as hid,h.name as hname,count(*) as no_of_challenges from hackers h 
+inner join Submissions s on h.hacker_id = s.hacker_id 
+inner join challenges c on s.challenge_id = c.challenge_id
+inner join difficulty d on c.difficulty_level = d.difficulty_level
+where d.score=s.score
+group by h.hacker_id,h.name
+having count(*)>1) A
+order by no_of_challenges desc, hid asc;

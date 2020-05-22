@@ -1,0 +1,2 @@
+select min(ROUND(lat_n, 4)) from station
+where LAT_N > 38.7880;

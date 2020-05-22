@@ -1,0 +1,2 @@
+SELECT b.N,IF(P IS NULL,'Root',IF((SELECT COUNT(*) FROM BST WHERE P=b.N)>0,'Inner','Leaf'))
+from bst b order by b.n;
